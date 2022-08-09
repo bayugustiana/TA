@@ -1,0 +1,20 @@
+<HTML>
+    <BODY>
+    <table>
+     <thead>
+     <tr>
+      <th>suhu</th>
+      <th>detak_jantung</th>
+     </tr>
+     </thead>
+     <tbody>
+      {% for row in value %}
+       <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+       </tr>
+      {% endfor %}
+     </tbody>
+    </table>
+    </BODY>
+    </HTML>
