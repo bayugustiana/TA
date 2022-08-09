@@ -5,16 +5,14 @@ import numpy as np
 from hyperparameters import device
 from architecture import ANN
 from data import sc_X, X_train, y_train, X_test, y_test
-from madgrad import MADGRAD
 
 model = ANN(2).to(device)
 
 criterion = nn.MSELoss()
-optimizer = MADGRAD(model.parameters())
+optimizer = torch.optim.Adam(model.parameters())
 
 checkpoint = torch.load('model.pth')
 model.load_state_dict(checkpoint['model_state_dict'])
-optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 epoch = checkpoint['epoch']
 loss = checkpoint['loss']
 
